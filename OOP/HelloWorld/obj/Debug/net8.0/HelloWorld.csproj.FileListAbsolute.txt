@@ -1,0 +1,15 @@
+/home/kirill/lab_3_sem/OOP/HelloWorld/bin/Debug/net8.0/HelloWorld
+/home/kirill/lab_3_sem/OOP/HelloWorld/bin/Debug/net8.0/HelloWorld.deps.json
+/home/kirill/lab_3_sem/OOP/HelloWorld/bin/Debug/net8.0/HelloWorld.runtimeconfig.json
+/home/kirill/lab_3_sem/OOP/HelloWorld/bin/Debug/net8.0/HelloWorld.dll
+/home/kirill/lab_3_sem/OOP/HelloWorld/bin/Debug/net8.0/HelloWorld.pdb
+/home/kirill/lab_3_sem/OOP/HelloWorld/obj/Debug/net8.0/HelloWorld.GeneratedMSBuildEditorConfig.editorconfig
+/home/kirill/lab_3_sem/OOP/HelloWorld/obj/Debug/net8.0/HelloWorld.AssemblyInfoInputs.cache
+/home/kirill/lab_3_sem/OOP/HelloWorld/obj/Debug/net8.0/HelloWorld.AssemblyInfo.cs
+/home/kirill/lab_3_sem/OOP/HelloWorld/obj/Debug/net8.0/HelloWorld.csproj.CoreCompileInputs.cache
+/home/kirill/lab_3_sem/OOP/HelloWorld/obj/Debug/net8.0/HelloWorld.sourcelink.json
+/home/kirill/lab_3_sem/OOP/HelloWorld/obj/Debug/net8.0/HelloWorld.dll
+/home/kirill/lab_3_sem/OOP/HelloWorld/obj/Debug/net8.0/refint/HelloWorld.dll
+/home/kirill/lab_3_sem/OOP/HelloWorld/obj/Debug/net8.0/HelloWorld.pdb
+/home/kirill/lab_3_sem/OOP/HelloWorld/obj/Debug/net8.0/HelloWorld.genruntimeconfig.cache
+/home/kirill/lab_3_sem/OOP/HelloWorld/obj/Debug/net8.0/ref/HelloWorld.dll
