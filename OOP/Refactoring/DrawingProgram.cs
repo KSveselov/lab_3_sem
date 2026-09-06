@@ -39,7 +39,7 @@ namespace RefactorMe
     }
     
     public class ImpossibleSquare
-    {
+    {   
         public static void Draw(int width, int hight, double turnAngle, IGraphics graphics)
         {
             Drawer.Initialization(graphics);
@@ -51,41 +51,34 @@ namespace RefactorMe
             var y0 = (float)(diagonalLength * Math.Sin(Math.PI / 4 + Math.PI)) + hight / 2f;
 
             Drawer.SetPosition(x0, y0);
-            //Рисуем 1-ую сторону
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f, 0);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI / 4);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI / 2);
+            
+            DrawSide(0, sz);
+            DrawSide(-Math.PI / 2, sz);
+            DrawSide(Math.PI, sz);
+            DrawSide(Math.PI / 2, sz);
+        }
 
-            Drawer.Change(sz * 0.04f, -Math.PI);
-            Drawer.Change(sz * 0.04f * Math.Sqrt(2), 3 * Math.PI / 4);
+        private static void DrawSide(double baseAngle, float sz)
+        {
+            float mainLength = sz * 0.375f;          // Длина основной части
+            float cathetOffset = sz * 0.04f;         // Длина катета при скосе
+            float diagonalOffset = cathetOffset * (float)Math.Sqrt(2); // Длина диагонального отрезка (скоса)
 
-            //Рисуем 2-ую сторону
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f, -Math.PI / 2);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), -Math.PI / 2 + Math.PI / 4);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f, -Math.PI / 2 + Math.PI);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, -Math.PI / 2 + Math.PI / 2);
+            // Рисуем первый отрезок (основной)
+            Drawer.MakeIt(new Pen(Brushes.Yellow), mainLength, baseAngle);
 
-            Drawer.Change(sz * 0.04f, -Math.PI / 2 - Math.PI);
-            Drawer.Change(sz * 0.04f * Math.Sqrt(2), -Math.PI / 2 + 3 * Math.PI / 4);
+            // Второй отрезок (скос под 45°)
+            Drawer.MakeIt(new Pen(Brushes.Yellow), diagonalOffset, baseAngle + Math.PI / 4);
 
-            //Рисуем 3-ю сторону
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI + Math.PI / 4);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI + Math.PI);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI + Math.PI / 2);
+            // Третий отрезок (основной, разворот на 180°)
+            Drawer.MakeIt(new Pen(Brushes.Yellow), mainLength, baseAngle + Math.PI);
 
-            Drawer.Change(sz * 0.04f, Math.PI - Math.PI);
-            Drawer.Change(sz * 0.04f * Math.Sqrt(2), Math.PI + 3 * Math.PI / 4);
+            // Четвёртый отрезок (укороченный, повёрнут на 90°)
+            Drawer.MakeIt(new Pen(Brushes.Yellow), mainLength - cathetOffset, baseAngle + Math.PI / 2);
 
-            //Рисуем 4-ую сторону
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI / 2);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.04f * Math.Sqrt(2), Math.PI / 2 + Math.PI / 4);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f, Math.PI / 2 + Math.PI);
-            Drawer.MakeIt(new Pen(Brushes.Yellow), sz * 0.375f - sz * 0.04f, Math.PI / 2 + Math.PI / 2);
-
-            Drawer.Change(sz * 0.04f, Math.PI / 2 - Math.PI);
-            Drawer.Change(sz * 0.04f * Math.Sqrt(2), Math.PI / 2 + 3 * Math.PI / 4);
+            // Перемещение (завершение скоса)
+            Drawer.Change(cathetOffset, baseAngle - Math.PI);
+            Drawer.Change(diagonalOffset, baseAngle + 3 * Math.PI / 4);
         }
     }
 }
