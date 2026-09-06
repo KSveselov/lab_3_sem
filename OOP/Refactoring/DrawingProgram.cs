@@ -9,7 +9,7 @@ namespace RefactorMe
         static float x, y;
         static IGraphics graphics;
 
-        public static void Initialization ( IGraphics newGraphics )
+        public static void Initialize ( IGraphics newGraphics )
         {
             graphics = newGraphics;
             graphics.Clear(Colors.Black);
@@ -42,7 +42,7 @@ namespace RefactorMe
     {   
         public static void Draw(int width, int hight, double turnAngle, IGraphics graphics)
         {
-            Drawer.Initialization(graphics);
+            Drawer.Initialize(graphics);
 
             var sz = Math.Min(width, hight);
 
@@ -61,8 +61,8 @@ namespace RefactorMe
         private static void DrawSide(double baseAngle, float sz)
         {
             float mainLength = sz * 0.375f;          // Длина основной части
-            float cathetOffset = sz * 0.04f;         // Длина катета при скосе
-            float diagonalOffset = cathetOffset * (float)Math.Sqrt(2); // Длина диагонального отрезка (скоса)
+            float cornerOffset = sz * 0.04f;         // Длина катета при скосе
+            float diagonalOffset = cornerOffset * (float)Math.Sqrt(2); // Длина диагонального отрезка (скоса)
 
             // Рисуем первый отрезок (основной)
             Drawer.MakeIt(new Pen(Brushes.Yellow), mainLength, baseAngle);
@@ -74,10 +74,10 @@ namespace RefactorMe
             Drawer.MakeIt(new Pen(Brushes.Yellow), mainLength, baseAngle + Math.PI);
 
             // Четвёртый отрезок (укороченный, повёрнут на 90°)
-            Drawer.MakeIt(new Pen(Brushes.Yellow), mainLength - cathetOffset, baseAngle + Math.PI / 2);
+            Drawer.MakeIt(new Pen(Brushes.Yellow), mainLength - cornerOffset, baseAngle + Math.PI / 2);
 
             // Перемещение (завершение скоса)
-            Drawer.Change(cathetOffset, baseAngle - Math.PI);
+            Drawer.Change(cornerOffset, baseAngle - Math.PI);
             Drawer.Change(diagonalOffset, baseAngle + 3 * Math.PI / 4);
         }
     }
