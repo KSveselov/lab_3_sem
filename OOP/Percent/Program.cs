@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace HelloWorld
 {
@@ -6,13 +7,21 @@ namespace HelloWorld
     {
         public static void Main()
         {
-            Console.WriteLine(Decode("1..02.6"));
-            Console.WriteLine(Decode("1010"));
+            String inform = Console.ReadLine()!;
+            
+
+            Console.WriteLine(Calculate(inform));
         }
 
-        static int Decode(string arg)
-        {
-            return int.Parse(arg.Replace(".", ""))%1024;
+        public static double Calculate(String inform)
+        {   
+            String[] informArray = inform.Split(' ');
+            double deposit = double.Parse(informArray[0].Trim(), CultureInfo.InvariantCulture);
+            double rate = double.Parse(informArray[1].Trim(), CultureInfo.InvariantCulture);
+            int duration = int.Parse(informArray[2].Trim());
+
+            double result = deposit * Math.Pow((1 + rate/1200.0), duration);
+            return result;
         }
     }
 }
