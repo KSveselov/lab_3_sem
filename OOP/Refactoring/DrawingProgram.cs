@@ -12,7 +12,6 @@ namespace RefactorMe
         public static void Initialization ( IGraphics newGraphics )
         {
             graphics = newGraphics;
-            //graphics.SmoothingMode = SmoothingMode.None;
             graphics.Clear(Colors.Black);
         }
 
@@ -40,7 +39,6 @@ namespace RefactorMe
 {
     public static void Draw(int width, int hight, double turnAngle, IGraphics graphics)
     {
-        // turnAngle пока не используется, но будет использоваться в будущем
         Drawer.Initialization(graphics);
 
         var sz = Math.Min(width, hight);
