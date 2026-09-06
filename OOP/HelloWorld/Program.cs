@@ -4,21 +4,15 @@ namespace HelloWorld
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-            Console.WriteLine(GetLastHalf("I love CSharp!"));
-            Console.WriteLine(GetLastHalf("1234567890"));
-            Console.WriteLine(GetLastHalf("до ре ми фа соль ля си"));
+            Console.WriteLine(Decode("1..02.6"));
+            Console.WriteLine(Decode("1010"));
         }
 
-        static string GetLastHalf(string text)
-        {   
-            int start = text.Length/2;
-            int end = text.Length;
-
-            string second_part = text.Substring(start,end-start);
-            return second_part.Replace(" ", "");
-
+        static int Decode(string arg)
+        {
+            return int.Parse(arg.Replace(".", ""))%1024;
         }
     }
 }
