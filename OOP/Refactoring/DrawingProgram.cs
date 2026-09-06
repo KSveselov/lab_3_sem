@@ -4,7 +4,7 @@ using RefactorMe.Common;
 
 namespace RefactorMe
 {
-    class Drawer
+    public class Drawer
     {
         static float x, y;
         static IGraphics graphics;
@@ -17,7 +17,8 @@ namespace RefactorMe
 
         public static void SetPosition(float x0, float y0)
         {
-            x = x0; y = y0;
+            x = x0; 
+            y = y0;
         }
 
         public static void MakeIt(Pen pen, double list, double angle)
