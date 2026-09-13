@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запись на приём</title>
+</head>
+<body>
+    <header>
+        <h1>Запись на приём</h1>
+        <p>Поля, отмеченные *, обязательны для заполнения.</p>
+    </header>
+
+    <main>
+        <form action="#" method="get">
+            <fieldset>
+                <legend>Контактные данные</legend>
+
+                <p>
+                    <label for="full-name">Фамилия, имя и отчество *</label><br>
+                    <input
+                        id="full-name"
+                        name="full-name"
+                        type="text"
+                        required
+                        minlength="3"
+                        pattern="[А-Яа-яЁёA-Za-z]+([ -][А-Яа-яЁёA-Za-z]+){1,2}"
+                        title="Введите имя и фамилию, используя только буквы, пробел или дефис."
+                        autocomplete="name">
+                </p>
+
+                <p>
+                    <label for="email">Электронная почта *</label><br>
+                    <input id="email" name="email" type="email" required autocomplete="email">
+                </p>
+
+                <p>
+                    <label for="phone">Телефон *</label><br>
+                    <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        required
+                        pattern="\+7[0-9]{10}"
+                        title="Введите номер в формате +79991234567."
+                        placeholder="+79991234567"
+                        autocomplete="tel">
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Параметры записи</legend>
+
+                <p>
+                    <label for="city">Город *</label><br>
+                    <input id="city" name="city" type="text" list="cities" required autocomplete="address-level2">
+                    <datalist id="cities">
+                        <option value="Москва">
+                        <option value="Санкт-Петербург">
+                        <option value="Казань">
+                        <option value="Екатеринбург">
+                        <option value="Новосибирск">
+                    </datalist>
+                </p>
+
+                <p>
+                    <label for="visit-date">Желаемая дата *</label><br>
+                    <input id="visit-date" name="visit-date" type="date" required min="2026-09-12" max="2027-12-31">
+                </p>
+
+                <p>
+                    <label for="guests">Количество посетителей *</label><br>
+                    <input id="guests" name="guests" type="number" required min="1" max="6" step="1" value="1">
+                </p>
+
+                <p>Выберите услугу *</p>
+                <p>
+                    <input id="consultation" name="service" type="radio" value="consultation" required>
+                    <label for="consultation">Первичная консультация</label><br>
+
+                    <input id="repeat-visit" name="service" type="radio" value="repeat-visit">
+                    <label for="repeat-visit">Повторный приём</label><br>
+
+                    <input id="online-visit" name="service" type="radio" value="online-visit">
+                    <label for="online-visit">Онлайн-консультация</label>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Дополнительные условия</legend>
+
+                <p>
+                    <input id="reminder" name="reminder" type="checkbox" value="yes">
+                    <label for="reminder">Прислать напоминание о записи</label>
+                </p>
+
+                <p>
+                    <input id="consent" name="consent" type="checkbox" value="yes" required>
+                    <label for="consent">Я согласен на обработку персональных данных *</label>
+                </p>
+            </fieldset>
+
+            <p>
+                <input type="submit" value="Записаться на приём">
+                <input type="reset" value="Очистить форму">
+            </p>
+        </form>
+    </main>
+</body>
+</html>
