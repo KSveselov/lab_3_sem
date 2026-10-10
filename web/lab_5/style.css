@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F3F6FC;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100vw;
+    flex: 1;
+}
+
+header {
+    display: flex;
+    padding: 0.5vh 1vw;
+    min-width: 100%;
+    background-color:  #eaf2ff;
+}
+
+.container {
+
+    width: calc(100% - 10px);
+    max-width: 600px;
+    margin: 5px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    padding: 1vh 0;
+}
+
+.item {
+    min-width: 100%;
+    max-width: 600px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background-color: #ffffff;
+    border: 1px solid #dce4f0;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgb(30 41 59 / 6%);
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.item:hover {
+    border-color: #087cfa;
+}
+
+.item input {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    accent-color: #087cfa;
+    cursor: pointer;
+}
+
+.item label {
+    flex: 1;
+    color: #1e293b;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    cursor: pointer;
+}
+
+.item:has(input:checked) {
+    background-color: #eafbf0;
+}
+
+
+form {
+    width: calc(100% - 10px);
+    max-width: 600px;
+    margin: 5px 5px;
+    display: flex;
+}
+
+form p {
+    flex: 1;
+    color: #1e293b;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dce4f0;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgb(30 41 59 / 6%);
+    font-size: 16px;
+}
+
+form button {
+    padding: 12px 16px;
+    margin-left: 8px;
+    background-color: #087cfa;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgb(30 41 59 / 6%);
+    cursor: pointer;
+    transition: background-color 0.2s, transform 2s;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+form button:active {
+    transform: scale(0.98);
+}
+
+
+.delete-btn {
+    padding: 6px 12px;
+    background-color: #ff4d4f;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: auto;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #d9363e;
+}
+.delete-btn:active {
+    transform: scale(0.90);
+}

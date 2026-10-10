@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="icon" href="static/todo-icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="static/todo-icon.png" alt="ToDo List Icon" width="50" height="50">
+        <h1>ToDo List</h1>
+    </header>
+    <main>
+        <div class="container">
+            <div class="item">
+                <input type="checkbox" id="task-1">
+                <p>Sample Tasks</p>
+                <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="task-2">
+                <p>Sample Task 2</p>
+                <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="task-3">
+                <p>Sample Task 3</p>
+                <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+            </div>
+            <div class="item">
+                <input type="checkbox" id="task-4">
+                <p>Sample Task 4</p>
+                <button class="delete-btn" onclick="deleteTask(this)">Delete</button>
+            
+            </div>
+        </div>
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Add a new task..." required>
+            <button type="submit">Add</button>
+        </form>
+    </main>
+    <footer>
+        <p>© 2024 ToDo List App. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
