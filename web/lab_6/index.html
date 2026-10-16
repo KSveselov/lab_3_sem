@@ -4,19 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Опрос онлайн</title>
+    <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+    <link rel="stylesheet" href="static/style.css">
     <script src="static/script.js" async></script>
 </head>
 <body>
+    <header>
+        <img class="icon" src="static/images/favicon.svg" alt="" width="32" height="32">
+        <h1>Опрос онлайн</h1>
+    </header>
     <main>
-        <div class="progress-bar"></div>
+        <div class="progress-bar" role="progressbar" aria-label="Прогресс опроса" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="progress-bar-fill"></div>
+        </div>
         <div class="question-container">
-            <h2 class="question"></h2>
-            <div class="answers"></div>
+            <h2 class="question">kjklkjk</h2>
         </div>
         <div class="button-container">
             <button class="prev-btn">Назад</button>
             <button class="next-btn">Далее</button>
         </div>
     </main>
+    <footer>
+        <p>© 2024 Опрос онлайн. Все права защищены.</p>
+    </footer>
 </body>
 </html>
