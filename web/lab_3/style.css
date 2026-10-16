@@ -17,7 +17,6 @@ body {
 main {
     box-sizing: border-box;
     display: flex;
-    gap: 20px;
     padding: 1vh;
     border-radius: 2vh;
     border: 2px solid #E5EAF2;
@@ -34,13 +33,13 @@ main {
     width: 200px;
     height: 250px;
     object-fit: cover;
-    object-position: center;
+    object-position: left;
     border-radius: 1vh;
     
 
 }
 
-h2 {
+h1 {
     color: #243044;
     font-weight: 700;
 
@@ -55,7 +54,7 @@ h2 {
     
 }
 
-.nav {
+.nav li{
     display: inline-block;
     color: #0F5C56;
     border-radius: 1vh;
@@ -65,7 +64,7 @@ h2 {
     transition: background-color 1s, border-color 1s, color 1s;
 }
 
-.nav:hover {
+.nav li:hover {
     color: #FFFFFF;
     background-color: #2AAFA3;
     border-color: #2AAFA3;
@@ -79,7 +78,6 @@ button {
     border: 1px solid #2AAFA3;
     border-radius: 1vh;
     background-color: #2AAFA3;
-    cursor: pointer;
     transition: background-color 0.2s, transform 0.2s;
 }
 

@@ -8,7 +8,7 @@
     --primary-hover-color: #1f8d84;
     --primary-active-color: #176b64;
     --accent-color: #82e0d4;
-    --surface-dark: #183b40;
+    --surface-dark: #34727c;
     --surface-darker: #10282e;
     --text-light: #ffffff;
     --text-muted: #bed1d3;
@@ -99,10 +99,6 @@ main {
     transform: scale(0.94);
 }
 
-.search button:focus-visible {
-    outline: 3px solid var(--surface-dark);
-    outline-offset: 3px;
-}
 
 
 .catalog{

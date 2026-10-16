@@ -25,6 +25,7 @@ header {
     padding: 0.5vh 1vw;
     min-width: 100%;
     background-color:  #eaf2ff;
+    border-bottom: 5px solid #dce4f0;
 }
 
 .container {
@@ -137,4 +138,13 @@ form button:active {
 }
 .delete-btn:active {
     transform: scale(0.90);
+}
+
+
+footer {
+    display: flex;
+    padding: 0.5vh 1vw;
+    min-width: 100%;
+    background-color:  #eaf2ff;
+    border-top: 5px solid #dce4f0;
 }
