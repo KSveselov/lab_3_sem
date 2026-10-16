@@ -19,7 +19,27 @@
             <input type="text" placeholder="Поиск по каталогу">
             <button class="search-button" type="submit">🔍</button>
         </div>
-        <div class="catalog">
+        <div class="catalog-layout">
+            <aside class="filters">
+                <h2 id="filters-title">Фильтры</h2>
+                <fieldset>
+                    <legend>Категория</legend>
+                    <label><input type="checkbox" name="category" value="electronics"> Электроника</label>
+                    <label><input type="checkbox" name="category" value="clothing"> Одежда и аксессуары</label>
+                </fieldset>
+                <fieldset>
+                    <legend>Цена, руб.</legend>
+                    <label for="price-min">От</label>
+                    <input id="price-min" type="number" name="price-min" min="0" placeholder="0">
+                    <label for="price-max">До</label>
+                    <input id="price-max" type="number" name="price-max" min="0" placeholder="60 000">
+                </fieldset>
+                <fieldset>
+                    <legend>Наличие</legend>
+                    <label><input type="checkbox" name="in-stock"> В наличии</label>
+                </fieldset>
+            </aside>
+            <div class="catalog">
             <div class="item">
                 <img src="img/headphones.jpg" alt="Белые накладные наушники на светлом фоне">
                 <h2>Накладные наушники</h2>
@@ -67,6 +87,7 @@
                 <h2>Компактная колонка</h2>
                 <p>Небольшая колонка в светлом корпусе с тканевой отделкой для домашнего пространства.</p>
                 <span>Цена: 3 990 руб.</span>
+            </div>
             </div>
         </div>
     </main>

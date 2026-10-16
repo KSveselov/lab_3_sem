@@ -101,7 +101,59 @@ main {
 
 
 
-.catalog{
+.catalog-layout {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    align-items: start;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.filters {
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.filters h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.filters fieldset {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+    border: 0;
+}
+
+.filters legend {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.filters label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.filters input[type="number"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+.catalog-layout .catalog {
+    margin-top: 0;
+}
+
+.catalog {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
@@ -191,5 +243,11 @@ footer a:hover {
 @media (min-width: 768px) {
     .footer-content {
         grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .catalog-layout {
+        grid-template-columns: minmax(0, 1fr);
     }
 }
