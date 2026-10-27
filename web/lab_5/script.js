@@ -1,14 +1,12 @@
 
+const form = document.querySelector("#todo-form");
+const input = document.querySelector("#todo-input")
+const container = document.querySelector(".container");
 
 function deleteTask(button) {
     const item = button.parentElement;
     item.remove();
 }
-
-
-
-const form = document.querySelector("#todo-form");
-const input = document.querySelector("#todo-input")
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -16,12 +14,18 @@ form.addEventListener("submit", (event) => {
     const taskText = input.value.trim();
     if (taskText !== "") {
         addTask(taskText);
-        input.value = "";
     }
 
     form.reset();
 })
 
+// BAD PRACTICE: Deliberately crashes performance
+function regularSleep(ms) {
+  const start = Date.now();
+  while (Date.now() - start < ms) { /* Blocks everything */ }
+}
+
+regularSleep(10000)
 
 function addTask(taskText) {
     const container = document.querySelector(".container");
@@ -44,3 +48,11 @@ function addTask(taskText) {
     item.appendChild(deleteButton);
     container.appendChild(item);
 }
+
+
+
+
+container.addEventListener("change", (event) => {
+    const item = event.target.closest(".item");
+    item.classList.toggle("completed", event.target.checked);
+});

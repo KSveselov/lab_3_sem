@@ -67,18 +67,22 @@ header {
     cursor: pointer;
 }
 
-.item label {
+.item p {
     flex: 1;
     color: #1e293b;
     line-height: 1.5;
     overflow-wrap: anywhere;
     cursor: pointer;
+
 }
 
 .item:has(input:checked) {
     background-color: #eafbf0;
 }
 
+.completed p {
+    text-decoration: line-through;
+}
 
 form {
     width: calc(100% - 10px);
@@ -131,6 +135,7 @@ form button:active {
     cursor: pointer;
     margin-left: auto;
     transition: background-color 0.2s, transform 0.2s;
+    word-break: initial;
 }
 
 .delete-btn:hover {
@@ -148,3 +153,4 @@ footer {
     background-color:  #eaf2ff;
     border-top: 5px solid #dce4f0;
 }
+
