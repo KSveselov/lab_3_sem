@@ -51,6 +51,54 @@ function saveAnswers(){
     curAnswers[currentQuestion] = Array.from(selected, input => input.value);
 }
 
+function ShowRightAnswers() {
+    const questionContainer = document.querySelector(".question-container");
+    const heading = document.createElement("h3");
+    heading.classList.add("results-heading");
+    heading.textContent = "Разбор ответов";
+
+    const answersList = document.createElement("ol");
+    answersList.classList.add("results-list");
+
+    surveyData.questions.forEach((question, index) => {
+        const answerItem = document.createElement("li");
+        const title = document.createElement("h4");
+        title.textContent = `${index + 1}. ${question.question}`;
+        answerItem.appendChild(title);
+
+        const selectedAnswers = curAnswers[index] ?? [];
+        for (const [label, answers] of [
+            ["Ваш ответ", selectedAnswers],
+            ["Правильно", question.correctAnswers],
+        ]) {
+            const row = document.createElement("div");
+            row.classList.add("result-row");
+            const caption = document.createElement("span");
+            caption.classList.add("result-label");
+            caption.textContent = label;
+            row.appendChild(caption);
+
+            const values = document.createElement("div");
+            values.classList.add("result-values");
+            if (answers.length === 0) {
+                values.textContent = "Не выбран";
+            }
+            for (const answer of answers) {
+                const value = document.createElement("span");
+                const isCorrect = question.correctAnswers.includes(answer);
+                value.classList.add("result-answer", isCorrect ? "is-correct" : "is-wrong");
+                value.textContent = isCorrect ? answer : `${answer} — ошибка`;
+                values.appendChild(value);
+            }
+            row.appendChild(values);
+            answerItem.appendChild(row);
+        }
+        answersList.appendChild(answerItem);
+    });
+
+    questionContainer.append(heading, answersList);
+}
+
 function nextQuestion(){
 
     if (!surveyData || currentQuestion >= surveyData.questions.length) return;
@@ -95,9 +143,9 @@ function loadLastSurvey() {
     const percentage = Math.round(score / total * 100);
 
     const message = document.createElement("p");
-    message.setAttribute("role", "status");
     message.textContent = `Правильных ответов: ${score} из ${total} (${percentage}%).`;
     questionContainer.appendChild(message);
+    ShowRightAnswers();
 
     document.querySelector(".button-container").classList.add("hidden");
 }
@@ -114,7 +162,7 @@ function updateStatusBar(){
 async function startSurvey() {
 
     try{
-        const data = await fetch("static/opros/1.json");
+        const data = await fetch("static/opros/2.json");
 
         if(!data.ok) {
             throw new Error("Ошибка при загрузке данных: " + data.status);

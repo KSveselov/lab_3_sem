@@ -147,3 +147,64 @@ button {
 .hidden {
     display: none;
 }
+
+.results-heading {
+    margin: 24px 0 12px;
+    font-size: 18px;
+}
+
+.results-list {
+    display: grid;
+    gap: 12px;
+    list-style: none;
+}
+
+.results-list > li {
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--question-border);
+    border-radius: 10px;
+    background-color: var(--text-light);
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.results-list h4 {
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.result-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.result-label {
+    flex: 0 0 80px;
+    color: var(--surface-dark);
+}
+
+.result-values {
+    display: flex;
+    flex: 1 1 160px;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.result-answer {
+    padding: 2px 8px;
+    border-radius: 6px;
+}
+
+.result-answer.is-correct {
+    color: var(--primary-active-color);
+    background-color: var(--question-background);
+}
+
+.result-answer.is-wrong {
+    color: #9f3030;
+    background-color: #fff0f0;
+}
