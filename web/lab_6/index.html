@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,14 +11,19 @@
     <link rel="stylesheet" href="static/components.css">
     <script src="static/script.js" async></script>
 </head>
+
 <body>
     <header>
         <img class="icon" src="static/images/favicon.svg" alt="" width="32" height="32">
         <h1>Опрос онлайн</h1>
     </header>
     <main>
-        <div class="progress-bar" role="progressbar" aria-label="Прогресс опроса" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-            <div class="progress-bar-fill"></div>
+        <div class="bar">
+            <p class="hidden">1/2</p>
+            <div class="progress-bar" role="progressbar" aria-label="Прогресс опроса" aria-valuemin="0"
+                aria-valuemax="100" aria-valuenow="0">
+                <div class="progress-bar-fill"></div>
+            </div>
         </div>
         <div class="question-container">
             <h2 class="question">Начните выполнение опроса</h2>
@@ -32,4 +38,5 @@
         <p>© 2024 Опрос онлайн. Все права защищены.</p>
     </footer>
 </body>
+
 </html>
