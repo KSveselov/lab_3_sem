@@ -2,6 +2,7 @@
 
 let surveyData;
 let currentQuestion = 0;
+let curAnswers = [];
 
 function loadtQuestion(numberAnswer, surveyData) {
         
@@ -34,6 +35,8 @@ function loadtQuestion(numberAnswer, surveyData) {
         const buttonQuestion = document.createElement("input");
         buttonQuestion.type = typeQuestion === "single" ? "radio" : "checkbox";
         buttonQuestion.name = `question-${numberAnswer}`;
+        buttonQuestion.value = answer;
+        buttonQuestion.checked = curAnswers[numberAnswer]?.includes(answer) ?? false;
 
         const label = document.createElement("label");
         label.append(buttonQuestion, document.createTextNode(answer));
@@ -43,9 +46,16 @@ function loadtQuestion(numberAnswer, surveyData) {
     questionContainer.appendChild(answersContainer);
 }
 
+function saveAnswers(){
+    const selected = document.querySelectorAll(".answers input:checked");
+    curAnswers[currentQuestion] = Array.from(selected, input => input.value);
+}
+
 function nextQuestion(){
+
     if (!surveyData || currentQuestion >= surveyData.questions.length) return;
 
+    saveAnswers();
     currentQuestion++;
     if (currentQuestion < surveyData.questions.length) {
         loadtQuestion(currentQuestion, surveyData);
@@ -58,17 +68,17 @@ function nextQuestion(){
 
 
 function lastQuestion(){
-    if (!surveyData || 
+    if (!surveyData ||
         currentQuestion >= surveyData.questions.length ||
-        currentQuestion < 0) 
+        currentQuestion <= 0)
         return;
 
+    saveAnswers();
     currentQuestion--;
     if (currentQuestion >= 0) {
         loadtQuestion(currentQuestion, surveyData);
     } 
     updateStatusBar();
-
 }
 
 function loadLastSurvey() {
@@ -103,6 +113,7 @@ async function startSurvey() {
         
         surveyData = await data.json();
         currentQuestion = 0;
+        curAnswers = [];
         loadtQuestion(0, surveyData);
         updateStatusBar();
 
