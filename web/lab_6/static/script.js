@@ -57,11 +57,11 @@ function ShowRightAnswers() {
     heading.classList.add("results-heading");
     heading.textContent = "Разбор ответов";
 
-    const answersList = document.createElement("ol");
+    const answersList = document.createElement("div");
     answersList.classList.add("results-list");
 
     surveyData.questions.forEach((question, index) => {
-        const answerItem = document.createElement("li");
+        const answerItem = document.createElement("div");
         const title = document.createElement("h4");
         title.textContent = `${index + 1}. ${question.question}`;
         answerItem.appendChild(title);
@@ -73,7 +73,7 @@ function ShowRightAnswers() {
         ]) {
             const row = document.createElement("div");
             row.classList.add("result-row");
-            const caption = document.createElement("span");
+            const caption = document.createElement("div");
             caption.classList.add("result-label");
             caption.textContent = label;
             row.appendChild(caption);
@@ -84,7 +84,7 @@ function ShowRightAnswers() {
                 values.textContent = "Не выбран";
             }
             for (const answer of answers) {
-                const value = document.createElement("span");
+                const value = document.createElement("div");
                 const isCorrect = question.correctAnswers.includes(answer);
                 value.classList.add("result-answer", isCorrect ? "is-correct" : "is-wrong");
                 value.textContent = isCorrect ? answer : `${answer} — ошибка`;
