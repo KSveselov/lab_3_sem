@@ -86,8 +86,17 @@ function loadLastSurvey() {
     questionContainer.querySelector(".answers")?.remove();
     questionContainer.querySelector("h2").textContent = "Опрос завершён";
 
+    const score = surveyData.questions.filter((question, index) => {
+        const selectedAnswers = curAnswers[index] ?? [];
+        return selectedAnswers.length === question.correctAnswers.length &&
+            question.correctAnswers.every(answer => selectedAnswers.includes(answer));
+    }).length;
+    const total = surveyData.questions.length;
+    const percentage = Math.round(score / total * 100);
+
     const message = document.createElement("p");
-    message.textContent = "Спасибо за участие в опросе!";
+    message.setAttribute("role", "status");
+    message.textContent = `Правильных ответов: ${score} из ${total} (${percentage}%).`;
     questionContainer.appendChild(message);
 
     document.querySelector(".button-container").classList.add("hidden");
