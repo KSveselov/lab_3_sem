@@ -2,6 +2,7 @@
 
 let surveyData;
 let currentQuestion = 0;
+
 function loadtQuestion(numberAnswer, surveyData) {
         
     const questionElement = document.querySelector(".question-container h2");
@@ -14,7 +15,10 @@ function loadtQuestion(numberAnswer, surveyData) {
     questionElement.textContent = surveyData.questions[numberAnswer].question;
     startButton.classList.add("hidden");
     buttonContainer.classList.remove("hidden");
-    buttonLast.classList.add("hidden");
+    if(currentQuestion == 0)
+        buttonLast.classList.add("hidden");
+    else
+        buttonLast.classList.remove("hidden");
 
 
 
@@ -47,6 +51,22 @@ function nextQuestion(){
         loadLastSurvey();
     }
     updateStatusBar();
+    console.log(currentQuestion);
+}
+
+
+function lastQuestion(){
+    if (!surveyData || 
+        currentQuestion >= surveyData.questions.length ||
+        currentQuestion < 0) 
+        return;
+
+    currentQuestion--;
+    if (currentQuestion >= 0) {
+        loadtQuestion(currentQuestion, surveyData);
+    } 
+    updateStatusBar();
+
 }
 
 function loadLastSurvey() {
@@ -66,6 +86,7 @@ function updateStatusBar(){
     document.querySelector(".progress-bar-fill").style.width = `${progress}%`;
     document.querySelector(".progress-bar").setAttribute("aria-valuenow", progress);
 }
+
 
 async function startSurvey() {
 
