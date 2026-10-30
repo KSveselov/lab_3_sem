@@ -11,9 +11,11 @@ function loadtQuestion(numberAnswer, surveyData) {
     const buttonContainer = document.querySelector(".button-container");
     const buttonLast = document.querySelector(".prev-btn");
     const typeQuestion = surveyData.questions[numberAnswer].type;
+    const counter = document.querySelector(".counter");
 
     questionElement.textContent = surveyData.questions[numberAnswer].question;
     startButton.classList.add("hidden");
+    counter.classList.remove("hidden");
     buttonContainer.classList.remove("hidden");
     if(currentQuestion == 0)
         buttonLast.classList.add("hidden");
@@ -85,6 +87,8 @@ function updateStatusBar(){
     const progress = Math.round(currentQuestion / surveyData.questions.length * 100);
     document.querySelector(".progress-bar-fill").style.width = `${progress}%`;
     document.querySelector(".progress-bar").setAttribute("aria-valuenow", progress);
+    if((currentQuestion+1) <= surveyData.questions.length)
+        document.querySelector(".counter").textContent = (currentQuestion+1) + "\\" + surveyData.questions.length;
 }
 
 
