@@ -158,6 +158,20 @@ function updateStatusBar(){
         document.querySelector(".counter").textContent = (currentQuestion+1) + "\\" + surveyData.questions.length;
 }
 
+function ShowError() {
+    const questionContainer = document.querySelector(".question-container");
+    questionContainer.querySelector("h2").textContent = "Не удалось загрузить опрос";
+
+    let errorMessage = questionContainer.querySelector(".load-error");
+    if (!errorMessage) {
+        errorMessage = document.createElement("p");
+        errorMessage.classList.add("load-error");
+        questionContainer.appendChild(errorMessage);
+    }
+    errorMessage.textContent = "Ошибка при загрузке данных";
+}
+
+
 
 async function startSurvey() {
 
@@ -166,15 +180,18 @@ async function startSurvey() {
 
         if(!data.ok) {
             throw new Error("Ошибка при загрузке данных: " + data.status);
+            
         }
         
         surveyData = await data.json();
+        document.querySelector(".load-error")?.remove();
         currentQuestion = 0;
         curAnswers = [];
         loadtQuestion(0, surveyData);
         updateStatusBar();
 
     } catch (error) {
-        console.error("Ошибка при загрузке данных:", error);
+        console.log("Ошибка при загрузке данных:");
+        ShowError();
     }
 }
