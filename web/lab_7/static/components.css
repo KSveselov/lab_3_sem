@@ -1,0 +1,118 @@
+button,
+input {
+    max-width: 100%;
+    min-height: 44px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font: inherit;
+}
+
+button {
+    padding: 10px 20px;
+    border-color: transparent;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+button + button {
+    margin-inline-start: 8px;
+    margin-block-start: 8px;
+}
+
+button:active:not(:disabled) {
+    background-color: var(--primary-active-color);
+    transform: scale(0.97);
+}
+
+button:disabled {
+    background-color: var(--border-color);
+    color: var(--text-secondary);
+    cursor: not-allowed;
+}
+
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 12px 14px;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: var(--text-secondary);
+    opacity: 1;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+}
+
+input:disabled,
+input[readonly] {
+    background-color: var(--page-background);
+    color: var(--text-secondary);
+}
+
+input:disabled {
+    cursor: not-allowed;
+}
+
+.card {
+    padding: clamp(20px, 4vw, 28px);
+    border: 1px solid var(--question-border);
+    border-inline-start: 4px solid var(--primary-color);
+    border-radius: 12px;
+    background-color: var(--question-background);
+    color: var(--question-text);
+    margin:10px
+}
+
+.card h2 {
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.card p {
+    line-height: 1.7;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    button:hover:not(:disabled) {
+        background-color: var(--primary-hover-color);
+    }
+
+    button:active:not(:disabled) {
+        background-color: var(--primary-active-color);
+    }
+
+    input:hover:not(:disabled):not([readonly]) {
+        border-color: var(--primary-color);
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        width: 100%;
+    }
+
+    button + button {
+        margin-inline-start: 0;
+    }
+}
+
+.hidden {
+    display: none;
+}

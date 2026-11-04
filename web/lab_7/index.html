@@ -1,1 +1,43 @@
-d
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Библиотека компонентов</title>
+
+    <link rel="stylesheet" href="./static/style.css">
+    <link rel="stylesheet" href="./static/layout.css">
+    <link rel="stylesheet" href="./static/components.css">
+
+
+
+    <script src="https://unpkg.com/react@18.3.1/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <img class="icon" src="static/images/favicon.svg" alt="" width="32" height="32">
+        <h1>UI компоненты</h1>
+    </header>
+    <div id="root"></div>
+    <footer>
+        <p>© 2026 UI компоненты. Все права защищены.</p>
+    </footer>
+
+    <script type="text/babel" data-presets="react" src="./src/Button.jsx"></script>
+
+    <script type="text/babel" data-presets="react" src="./src/Card.jsx"></script>
+
+    <script type="text/babel" data-presets="react" src="./src/Input.jsx"></script>
+
+
+    <script type="text/babel" data-presets="react" src="./src/App.jsx"></script>
+
+    <script type="text/babel" data-presets="react" src="./src/main.jsx"></script>
+</body>
+
+</html>
