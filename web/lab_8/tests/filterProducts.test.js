@@ -16,8 +16,8 @@ const defaultFilters = {
   onlyInStock: false,
 }
 
-function names(overrides = {}) {
-  return filterProducts(products, { ...defaultFilters, ...overrides })
+function names(overrides = {}, searchQuery = '') {
+  return filterProducts(products, { ...defaultFilters, ...overrides }, searchQuery)
     .map((product) => product.name)
 }
 
@@ -60,4 +60,30 @@ test('все группы фильтров применяются одновре
 test('несовместимые условия и обратный диапазон дают пустой результат', () => {
   assert.deepEqual(names({ minPrice: '60000' }), [])
   assert.deepEqual(names({ minPrice: '3500', maxPrice: '3000' }), [])
+})
+
+
+test('поиск находит часть названия без учёта регистра и пробелов по краям', () => {
+  assert.deepEqual(names({}, '  УШНИ  '), ['Наушники'])
+  assert.deepEqual(names({}, 'кам'), ['Камера'])
+  assert.deepEqual(names({}, 'несуществующий товар'), [])
+})
+
+test('пустой запрос и пробелы не ограничивают список', () => {
+  assert.deepEqual(names({}, ''), names())
+  assert.deepEqual(names({}, '   '), names())
+})
+
+test('поиск применяется вместе с категориями, ценой и наличием', () => {
+  const filters = {
+    categories: ['electronics'],
+    minPrice: '3000',
+    maxPrice: '55000',
+    onlyInStock: true,
+  }
+  assert.deepEqual(names(filters, 'науш'), ['Наушники'])
+  assert.deepEqual(names({ categories: ['clothing'] }, 'науш'), [])
+  assert.deepEqual(names({ maxPrice: '3000' }, 'науш'), [])
+  assert.deepEqual(names({ minPrice: '4000' }, 'науш'), [])
+  assert.deepEqual(names({ onlyInStock: true }, 'кам'), [])
 })

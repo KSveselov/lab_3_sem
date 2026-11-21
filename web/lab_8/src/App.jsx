@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import filterProducts from './filterProducts.js'
 import Header from './components/Header.jsx'
 import Search from './components/Search.jsx'
@@ -10,6 +10,13 @@ import products from './data/products.js'
 import './App.css'
 
 export default function App() {
+  const [searchQuery, setSearchQuery] = useState(() => {
+    try {
+      return localStorage.getItem('searchQuery') ?? ''
+    } catch {
+      return ''
+    }
+  })
   const [filters, setFilters] = useState({
     categories: [],
     minPrice: '',
@@ -17,13 +24,21 @@ export default function App() {
     onlyInStock: false,
   })
 
-  const filteredProducts = filterProducts(products, filters)
+  useEffect(() => {
+    try {
+      localStorage.setItem('searchQuery', searchQuery)
+    } catch (error) {
+      console.warn('Не удалось сохранить поисковый запрос', error)
+    }
+  }, [searchQuery])
+
+  const filteredProducts = filterProducts(products, filters, searchQuery)
 
   return (
     <>
       <Header />
       <main>
-        <Search />
+        <Search value={searchQuery} onChange={setSearchQuery} />
         <div className="catalog-layout">
           <Filters filters={filters} onChange={setFilters} />
           <div className="catalog-content">
