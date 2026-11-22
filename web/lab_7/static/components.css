@@ -16,7 +16,7 @@ button {
     line-height: 1.4;
     cursor: pointer;
     touch-action: manipulation;
-    -webkit-user-select: none;
+
     user-select: none;
 }
 
@@ -25,21 +25,9 @@ button + button {
     margin-block-start: 8px;
 }
 
-button:active:not(:disabled) {
+button:active {
     background-color: var(--primary-active-color);
     transform: scale(0.97);
-}
-
-button:disabled {
-    background-color: var(--border-color);
-    color: var(--text-secondary);
-    cursor: not-allowed;
-}
-
-button:focus-visible,
-input:focus-visible {
-    outline: 3px solid var(--primary-color);
-    outline-offset: 3px;
 }
 
 input {
@@ -54,20 +42,6 @@ input {
 input::placeholder {
     color: var(--text-secondary);
     opacity: 1;
-}
-
-input:focus {
-    border-color: var(--primary-color);
-}
-
-input:disabled,
-input[readonly] {
-    background-color: var(--page-background);
-    color: var(--text-secondary);
-}
-
-input:disabled {
-    cursor: not-allowed;
 }
 
 .card {
@@ -90,15 +64,11 @@ input:disabled {
 }
 
 @media (hover: hover) and (pointer: fine) {
-    button:hover:not(:disabled) {
+    button:hover {
         background-color: var(--primary-hover-color);
     }
 
-    button:active:not(:disabled) {
-        background-color: var(--primary-active-color);
-    }
-
-    input:hover:not(:disabled):not([readonly]) {
+    input:hover {
         border-color: var(--primary-color);
     }
 }
