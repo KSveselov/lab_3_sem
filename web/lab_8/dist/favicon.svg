@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Анкета с отмеченным ответом">
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="#2aafa3"/>
+  <rect x="15" y="11" width="34" height="43" rx="5" fill="#ffffff"/>
+  <rect x="23" y="8" width="18" height="8" rx="4" fill="#176b64"/>
+  <path d="M22 27l3 3 5-6" fill="none" stroke="#176b64" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M35 27h8M22 39h21M22 46h16" fill="none" stroke="#82e0d4" stroke-width="3" stroke-linecap="round"/>
+</svg>
